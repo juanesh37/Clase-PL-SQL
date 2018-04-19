@@ -51,3 +51,42 @@ SELECT findmin(50,10) AS JUAN FROM DUAL;
 3. CREAR UN PROCEDIMIENTO QUE RECIBA UN NUMERO E IMPRIMA POR CONSOLA LA TABLA DE MULTIPLICAR DESDE EL 1 HASTA EL 20.
 4. CREAR UNA FUNCIÓN QUE DEVUELVA EL AREA DE UN TRIANGULO RECTANGULO, SE RECIBE LA BASE Y LA ALTURA.
 5. CREAR UNA FUNCION QUE DEVUELVA EL RESULTADO DE LA ECUACION 2X**3 + 4X**2 + 77X + 5
+
+
+
+-------------------------------------------------------------------------------------------------
+
+-- 1. CREATE a program thar will ask the USER FOR  a NUMBER AND THEN print OUT a list OF NUMBER FROM 1 TO the NUMBER entered AND
+--    the square OF the NUMBER. FOR example, IF the USER entered '3' THEN the program would output: (1 squared ID 1. / 2 squared
+--    IS 4. / 3 squared IS 9.)
+
+-- 2. FUNCTION that accepts a NUMBER AS a parameter AND CHECK the NUMBER IS prime OR NOT.
+
+-- 3. Find the difference BETWEEN the square OF the SUM AND THE SUM OF the squares OF the FIRST N NATURAL numbers.
+--    The square OF the SUM OF the FIRST ten NATURAL numbers IS (1 + 2 + --- + 10)al cuadrado(2) = 55 al cuadrado(2) = 3025.
+
+--    The SUM OF the sqauares OF the FIRST ten NATURAL numbers IS 1 al cuadrado(2) + 2 al cuadrado(2) + ... + 10 al cuadrado(2) = 385
+
+--    Hence the difference BETWEEN the square OF the SUM OF the FIRST ten NATURAL numbers AND the SUM
+--    OF the squares OF the FIRIS ten NATURAL numbers IS 3025 - 385 - 2640.
+
+
+
+--1 
+
+CREATE OR REPLACE PROCEDURE square(numero IN NUMBER) AS
+indice NUMBER := 1;
+BEGIN 
+    FOR indice IN 1..numero LOOP
+        dbms_output.put_line(indice || 'elevado al cuadrado = ' || power(indice,2));
+    END LOOP;
+END;
+
+ACCEPT P1 PROMPT 'INGRESE SU NUMERO: ';
+DECLARE 
+    num NUMBER;
+BEGIN
+    num := $P1;
+    squareS(num);
+END;
+------------------------------------------------------------------------------------------------------2
